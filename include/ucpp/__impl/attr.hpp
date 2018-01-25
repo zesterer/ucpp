@@ -21,10 +21,8 @@
 |*| Provides compiler support for certain attributes
 |*/
 
-// Compiler
-#include <cstddef>
-
-// ucpp
-#include "__impl/attr.hpp"
-
-#define __ucpp_attr_packed __attribute__((__packed))
+#ifdef __GNUC__
+	#define __ucpp_attr_packed __attribute__((__packed__))
+#else
+	#error
+#endif
